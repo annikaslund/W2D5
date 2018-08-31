@@ -3,12 +3,28 @@ class Fixnum
 end
 
 class Array
+  
   def hash
-  end
+    encrypt = 0
+    
+    self.each_with_index do |el, i| 
+      encrypt ^= ((el.to_s).hash * i )
+    end 
+    encrypt
+  end 
+    
 end
 
 class String
+  
   def hash
+    encrypt = 0
+    
+    self.each_with_index do |el, i| 
+      encrypt ^= ((el.to_s).hash * i )
+    end 
+    encrypt
+  end 
   end
 end
 
